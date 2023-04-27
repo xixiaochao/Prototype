@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //pop unshift  shift  slice   indexOf reverse concat join;
+
+    /* Array.prototype.myUnshift = function () {
+         var cur = this.length-1+arguments.length;
+         for(var i=cur;i>=arguments.length;i--){
+             this[i]=this[i-arguments.length];
+         }
+         for (var i = 0; i < arguments.length; i++) {
+             this[i] = arguments[i];
+         }
+         return this.length;
+     }
+     var  ary = [4,5,6];
+     console.log(ary.myUnshift(1,2));
+     console.log(ary);
+ */
+
+    /* Array.prototype.myShift = function () {
+         var cur =this[0];
+         for(var i=0;i<this.length-1;i++){
+            this[i] = this[i+1];
+         }
+         this.length--;
+         return cur;
+     };
+     var  ary = [0,1,2,3,4,5,6];
+     console.log(ary.myShift());
+     console.log(ary);*/
+
+    /* Array.prototype.mySlice = function () {
+         var ary = [];
+         var Cur = arguments.length;
+             if(Cur===0) {
+                 for(var i=0;i<this.length;i++){
+                     ary[i]=this[i]
+             }
+         }
+             else if(Cur===1){
+                 var cur =arguments[0];
+                 if(cur===0) {
+                     for (var i = 0; i < this.length; i++) {
+                         ary[i] = this[i]
+                     }
+                 }else if(cur>0) {
+                     for (var i = cur; i < this.length; i++) {
+                         ary[i-cur] = this[i]
+                     }
+                 }else if(cur<0){
+                 cur+ =this.length
+                 if(cur<=0) {
+                 for(var i=0;i<this.length;i++){
+                     ary[i]=this[i]
+             }
+
+                 }else{
+                  for (var i = cur; i < this.length; i++) {
+                         ary[i-cur] = this[i]
+                     }
+                 }
+             }
+             else if(Cur>=2){
+             var a =arguments[0];
+                 var b =arguments[1];
+                 if(a<0){
+                 a = this.length+a
+             }if(b<0){
+                 b = this.length+b
+                 }
+                 if((b-a)<=0){
+                 return ary;
+                 }if((a-b)<0){
+                     for (var i = a; i < b; i++) {
+                         ary[i-a] = this[i]
+                     }
+                 }
+             }
+        return ary;
+    };
+    var  ary = [0,1,2,3,4,5,6];
+    console.log(ary.mySlice());
+     console.log(ary.mySlice(0));
+     console.log(ary.mySlice(-2));
+     console.log(ary.mySlice(2));
+     console.log(ary.mySlice(1,5));
+     console.log(ary.mySlice(5,3));
+     console.log(ary.mySlice(-5, -1));
+     console.log(ary);*/
+
+    /* Array.prototype.myIndexOf = function (cur) {
+         for(var i=0;i<this.length-1;i++){
+         if(this[i]===cur){
+             return i;
+         }
+     }
+        return -1;
+ };
+ var  ary = [0,1,2,3,4,2,5,6];
+ console.log(ary.myIndexOf(2));
+ console.log(ary);
+ */
+
+    /*  Array.prototype.myReverse = function () {
+          var cur = Math.floor(this.length/2);
+          for (var i = 0; i <cur; i++) {
+              var a =this[i] + this[this.length-1-i];
+              var b =this[i] - this[this.length-1-i];
+              this[i]=(a-b)/2;
+              this[this.length-1-i]=(a+b)/2;
+          }
+          return this;
+      };
+      var  ary = [0,1,2,3,4,5,6,7];
+      console.log(ary.myReverse());
+      console.log(ary);*/
+
+   
+
+    /*  Array.prototype.myJoin = function (cur) {
+       var str= "";
+       if(cur===undefined){
+           for(var i=0;i<this.length;i++){
+               str+=this[i]+","
+           }
+       }else {
+           for(var i=0;i<this.length;i++){
+               str+=this[i]+cur
+           }
+       }
+       var  newStr ="";
+          for (var i = 0; i <str.length-1; i++) {
+              newStr+=str[i];
+          }
+       return newStr;
+   };
+   var  ary = [0,1,2,];
+   console.log(ary.myJoin());
+   console.log(ary.myJoin("+"));
+   console.log(ary);
+*/
+
+    /*  Array.prototype.myLastIndexOf = function (cur) {
+     for(var i=this.length-1;i>=0;i--){
+       if(this[i]===cur){
+           return i;
+       }
+   }
+      return -1;
+ };
+ var  ary = [0,1,2,3,4,5,2,6];
+ console.log(ary.myLastIndexOf(2));
+ console.log(ary);*/
+    //forEach 可能有问题，待定
+    /* Array.prototype.myforEach = function () {
+         var ary=[];
+  for(var i=0;i<this.length;i++){
+    ary[i]=this[i];
+}
+};
+var  ary = [0,1,2,3,4,5,6];
+console.log(ary.myforEach());
+console.log(ary);*/
+    //未完，待续
+   /* Array.prototype.mySplice = function () {
+        var ary = [];
+        var Cur = arguments.length;
+        if (Cur === 0) {
+            return ary
+        }
+        else if (Cur === 1) {
+            var cur = arguments[0];
+            if (cur === 0) {
+                for (var i = 0; i < this.length; i++) {
+                    ary[i] = this[i];
+                }
+                for (var i = 0; i < this.length; i++) {
+                    this[i] = this[i + 1];
+                    i--;
+                    this.length--;
+                }
+            }
+            else if (cur > 0) {
+                for (var i = cur; i < this.length; i++) {
+                    ary[i - cur] = this[i];
+                }
+                for (var i = cur; i < this.length; i++) {
+                    this[i] = this[i + 1];
+                    i--;
+                    this.length--;
+                }
+            }
+            else if (cur < 0) {
+                cur += this.length;
+                for (var i = cur; i < this.length; i++) {
+                    ary[i - cur] = this[i];
+                }
+                for (var i = cur; i < this.length; i++) {
+                    this[i] = this[i + 1];
+                    i--;
+                    this.length--;
+                }
+            }
+
+        }
+        else if (Cur === 2) {
+            var cur = arguments[0];
+            var a = arguments[1];
+            if (a <= 0) {
+                return ary
+            }
+            if (cur < 0) {
+                cur = this.length + cur;
+            }
+            var b = this.length;
+            if (cur + a > b) {
+                for (var i = cur; i < b; i++) {
+                    ary[i - cur] = this[i];
+                }
+                for (var i = cur; i < b; i++) {
+                    this[i] = this[i + 1];
+                    i--;
+                    this.length--;
+                }
+            }
+            if (cur + a <= b) {
+                for (var i = cur; i < cur + a; i++) {
+                    ary[i - cur] = this[i];
+                }
+                for (var i = cur; i < cur + a; i++) {
+                    this[i] = this[i + 1];
+                    i--;
+                    this.length--;
+                }
+            }
+        }
+        else if (Cur >= 3) {
+            var cur = arguments[0];
+            var a = arguments[1];
+            var argu = arguments.length - 2;
+            if (a <= 0) {
+                if (cur <= 0) {
+                    cur += this.length;
+                    var b = this.length - 1 + argu;
+                    if (cur <= 0) {
+                        for (var i = b; i >= argu; i--) {
+                            this[i] = this[i - argu];
+                        }
+                        for (var i = 2; i < argu; i++) {
+                            this[i - 2] = arguments[i];
+                        }
+                    }
+                    else {
+                        for (var i = b; i >= cur + argu; i--) {
+                            this[i] = this[i - argu];
+                        }
+                        for (var i = 2; i < arguments.length; i++) {
+                            this[cur] = arguments[i];
+                            cur += 1;
+                        }
+                    }
+                }
+                if (cur > 0) {
+                    var b = this.length - 1 + argu;
+                    if (cur > this.length) {
+                        for (var i = 2; i < arguments.length; i++) {
+                            this[this.length] = arguments[i];
+                        }
+                    }
+                    else {
+                        for (var i = b; i >= cur + argu; i--) {
+                            this[i] = this[i - argu];
+                        }
+                        for (var i = 2; i < arguments.length; i++) {
+                            this[cur] = arguments[i];
+                            cur += 1;
+                        }
+                    }
+                }
+                return ary;
+            }
+            if (a > 0) {
+                if (cur <= 0) {
+                }
+                if (cur > 0) {
+                }
+            }
+        }
+        return ary;
+    };
+    var  ary = [0,1,2,3,4,5,6];
+     console.log(ary.mySplice());
+      console.log(ary.mySplice(0));
+      console.log(ary.mySplice(-2));
+      console.log(ary.mySplice(2));
+      console.log(ary.mySplice(1,5));
+      console.log(ary.mySplice(5,3));
+      console.log(ary.mySplice(-5, -1));*/
+
+</script>
+</body>
+</html>
